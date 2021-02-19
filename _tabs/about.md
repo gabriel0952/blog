@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: 關於
 icon: fas fa-info
 order: 4
