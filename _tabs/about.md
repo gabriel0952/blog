@@ -2,16 +2,6 @@
 title: About
 icon: fas fa-info
 order: 4
-
-# The About page
-# v2.0
-# https://github.com/cotes2020/jekyll-theme-chirpy
-# © 2017-2019 Cotes Chung
-# MIT License
----
-
-Mrlu 工作、学习日记
-
 ---
 
 ## 簡歷
@@ -33,7 +23,6 @@ Mrlu 工作、学习日记
         - 為提高開發與測試速度，負責進行APP的自動化測試流程建置，使用Jenkins pipeline串起程式建置、UI測試、結果通知。
         - 另外因應公司目標也在嘗試以 Microsoft Azure DevOps 建置 Android APP 的 CI/CD，提高工作效率。
 
-
 - 成大資工 MMNLab 研究生 - iOS Developer
     - AUG. 2017 - JUL. 2019
     - 工作內容：
@@ -43,7 +32,6 @@ Mrlu 工作、学习日记
         - APP連結：
             - DEH Make：[https://apps.apple.com/tw/app/deh-make-ii/id1324053125](https://apps.apple.com/tw/app/deh-make-ii/id1324053125)
             - DEH Mini：[https://apps.apple.com/tw/app/extn-deh-mini/id1372654336](https://apps.apple.com/tw/app/extn-deh-mini/id1372654336)
-
 
 ## Education
 - National Cheng Kung University (NCKU), M.S. in Computer Science and Information Engineering
