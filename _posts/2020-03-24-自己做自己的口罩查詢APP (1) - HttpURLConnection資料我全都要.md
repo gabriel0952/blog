@@ -37,13 +37,27 @@ tags: [Android, Java]
 ### 網路存取權限
 那這邊我們首先要注意的一點是，因為我們使用網路去取得資料的這一個動作勢必會需要使用用戶的網路資源，因此我們會需要在 `AndroidManifest.xml` 中加入使用網路的權限需求，如果沒有加的話程式會直接閃退喔~
 
+> AndroidManifest.xml
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example....">
+   <application
+       android:allowBackup="true"
+       ...
+   </application>
+   <uses-permission android:name="android.permission.INTERNET" />
+</manifest>
+```
 
 OK 在完成了一點點的前置作業後，我們就可以開始在我們的 MainActivity.java 中加入我們主要的動作了。
 
 ### HttpURLConnection 連結目的地
+
 這邊我們先讓這個 APP 可以取得我們想的資料就好，所以我們在 `onCreate` 中加入以下程式碼。
 
 > MainActivity.java
+
 ``` java
 URL url = new URL("https://data.nhi.gov.tw/Datasets/Download.ashx?rid=A21030000I-D50001-001&l=https://data.nhi.gov.tw/resource/mask/maskdata.csv");
 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -52,11 +66,13 @@ httpURLConnection.connect();
 ```
 
 ### 例外處理
+
 在你把這段程式碼放進去的時候，你應該會發現在有些定方會出現紅色的蚯蚓，提醒你這些地方有點問題，那是甚麼問題呢？我們可以把滑鼠移到他們的上面就可以看見 `unhandled exception java.net.malformedurlexception`這個問題，其實這個只是他要你去處理可能發生的例外狀況，那我們可以把這整段使用一組 try catch 來處理他們的例外狀況。
 
 那加上這段例外處理後，我們的程式碼就會變成下面這樣：
 
 > MainActivity.java
+
 ``` java
 try {
     URL url = new URL("https://data.nhi.gov.tw/Datasets/Download.ashx?rid=A21030000I-D50001-001&l=https://data.nhi.gov.tw/resource/mask/maskdata.csv");
@@ -73,6 +89,7 @@ try {
 因此我們只需要再加上一個 thread 來處理這個聯網的動作就好了~
 
 > MainActivity.java
+
 ``` java
 new Thread(new Runnable() {
     @Override
@@ -94,6 +111,7 @@ new Thread(new Runnable() {
 蛤？你說資料呢？其實他們已經都載下來了喔，如果想要顯示出來看的話，我們就加上一個資料再處理的function就好了。
 
 > MainActivity.java
+
 ``` java
 private void showDownload(HttpURLConnection httpURLConnection) throws IOException {
     InputStream inputStream = httpURLConnection.getInputStream();
@@ -125,7 +143,6 @@ private void showDownload(HttpURLConnection httpURLConnection) throws IOExceptio
 
 最後我們稍微看一下輸出的結果吧。
 ![https://ithelp.ithome.com.tw/upload/images/20200324/201257399jvIyMoywc.png](https://ithelp.ithome.com.tw/upload/images/20200324/201257399jvIyMoywc.png)
-
 
 [link1]: https://data.gov.tw/
 [link2]: https://developer.android.com/reference/android/widget/ListView
