@@ -40,8 +40,7 @@ tags: [Android, Java]
 > AndroidManifest.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-   package="com.example....">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example....">
    <application
        android:allowBackup="true"
        ...
@@ -67,6 +66,7 @@ httpURLConnection.connect();
 在你把這段程式碼放進去的時候，你應該會發現在有些定方會出現紅色的蚯蚓，提醒你這些地方有點問題，那是甚麼問題呢？我們可以把滑鼠移到他們的上面就可以看見 `unhandled exception java.net.malformedurlexception`這個問題，其實這個只是他要你去處理可能發生的例外狀況，那我們可以把這整段使用一組 try catch 來處理他們的例外狀況。
 
 那加上這段例外處理後，我們的程式碼就會變成下面這樣：
+
 > MainActivity.java
 ```
 try {
