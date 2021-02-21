@@ -37,17 +37,6 @@ tags: [Android, Java]
 ### 網路存取權限
 那這邊我們首先要注意的一點是，因為我們使用網路去取得資料的這一個動作勢必會需要使用用戶的網路資源，因此我們會需要在 `AndroidManifest.xml` 中加入使用網路的權限需求，如果沒有加的話程式會直接閃退喔~
 
-> AndroidManifest.xml
-``` xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example....">
-   <application
-       android:allowBackup="true"
-       ...
-   </application>
-   <uses-permission android:name="android.permission.INTERNET" />
-</manifest>
-```
 
 OK 在完成了一點點的前置作業後，我們就可以開始在我們的 MainActivity.java 中加入我們主要的動作了。
 
